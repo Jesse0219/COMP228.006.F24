@@ -51,5 +51,7 @@ public class Main {
         singer1.setWhole(6,"Zac Efron","88 California Street",new Date(87,10,18),28);
         System.out.println("\n(SetAll)Value updated of Zac Efron: ");
         singer1.displaySingerDetails();
+
+
     }
 }
