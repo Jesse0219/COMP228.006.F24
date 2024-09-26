@@ -15,12 +15,4 @@ public class Overload {
     public static void display(double decimal, int number) {
         System.out.println("Displaying double and integer: " + decimal + " and " + number);
     }
-
-    public static void main(String[] args) {
-        // Calling the overloaded methods
-        display(10);
-        display("Hello, World!");
-        display(3.14, 42);
-    }
-
 }

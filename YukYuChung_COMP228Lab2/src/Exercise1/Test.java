@@ -55,91 +55,87 @@ public class Test {
         String question = questions[questionNumber];
         String[] optionArray = options[questionNumber];
 
-        String questionDisplay = question + "\n";
-        for (int i = 0; i < optionArray.length; i++) {
-            questionDisplay += optionArray[i] + "\n";
+        String questionDisplay = question+"\n";
+        for(int i=0; i<optionArray.length; i++) {
+            questionDisplay += optionArray[i]+"\n";
         }
-
-        String userAnswer = JOptionPane.showInputDialog(null, questionDisplay.toString(),
-                "Multiple Choice Test", JOptionPane.QUESTION_MESSAGE);
-        checkAnswer(userAnswer, questionNumber);
+        String userAnswer = JOptionPane.showInputDialog(null, questionDisplay.toString(), "Multiple Choice Test",JOptionPane.QUESTION_MESSAGE);
+        checkAnswer(userAnswer,questionNumber);
     }
-
+    //method to check the answer vaild or not
     private void checkAnswer(String userAnswer, int questionNumber) {
-        // Check if userAnswer is not null and has at least one character
-        if (userAnswer != null && userAnswer.length() > 0) {
-            // Get the first character of the user's answer and convert it to uppercase
+        //To check the useAnswer is not null and has at least one character
+        if(userAnswer!=null && userAnswer.length()>0) {
+            // take the first character for answer and make sure it is uppercase
             char userAnswerChar = userAnswer.toUpperCase().toCharArray()[0];
-
-            if (userAnswerChar == answers[questionNumber]) {
+            if (userAnswerChar ==answers[questionNumber]){
                 correctAnswer++;
                 JOptionPane.showMessageDialog(null, generateMessage(true));
-            } else {
+            }else{
                 wrongAnswer++;
-                JOptionPane.showMessageDialog(null, generateMessage(false) +
-                        "\nThe correct answer was " + answers[questionNumber]);
+                JOptionPane.showMessageDialog(null, generateMessage(false)+"\nThe correct answer was " + answers[questionNumber]);
             }
-        } else {
+
+        }else{
             wrongAnswer++;
             JOptionPane.showMessageDialog(null, "No answer provided\nThe correct answer was " +
                     answers[questionNumber]);
         }
     }
-
-    private String generateMessage(boolean isCorrect) {
-        int[] numberMapping = {1, 2, 3, 4}; // Array mapping 0-3 to 1-4
-        int messageIndex = numberMapping[rand.nextInt(4)]; // Generates a number from 1 to 4 using mapping
-
+    //method generateMessage to user about their input
+    private String generateMessage(boolean correctOrNot) {
         String message;
-        switch (messageIndex) {
+        //1-4 randomly to send the message base on userAnswer
+        switch( rand.nextInt( 4 ) ) {
             case 1:
-                if (isCorrect) {
-                    message = "Excellent!";
-                } else {
-                    message = "No. Please try again.";
+                if(correctOrNot) {
+                    message ="Excellent!";
+                }else{
+                    message ="No. Please try again.";
                 }
                 break;
-            case 2:
-                if (isCorrect) {
-                    message = "Good!";
-                } else {
-                    message = "Wrong. Try once more.";
-                }
-                break;
-            case 3:
-                if (isCorrect) {
-                    message = "Keep up the good work!";
-                } else {
-                    message = "Do not give up!";
-                }
-                break;
-            case 4:
-                if (isCorrect) {
-                    message = "Nice work!";
-                } else {
-                    message = "No. Keep trying.";
-                }
-                break;
+                case 2:
+                    if(correctOrNot) {
+                        message ="Good!";
+                    }else{
+                        message ="Wrong. Try once more.";
+                    }
+                    break;
+                    case 3:
+                        if(correctOrNot) {
+                            message ="Keep up the good work!";
+                        }else{
+                            message ="Don't give up!";
+                        }
+                        break;
+                        case 4:
+                            if(correctOrNot) {
+                                message ="Nice work!";
+                            }else{
+                                message ="No. Keep trying.";
+                            }
+                            break;
             default:
                 message = "";
                 break;
         }
-
-        return message; // Add this return statement
+        return message;
     }
-    // Method to interact with the user and start the test
+
+    //Method inputAnswer
     public void inputAnswer() {
-        for (int i = 0; i < questions.length; i++) {
+        for(int i=0; i<questions.length; i++) {
             simulateQuestion(i);
         }
 
-        // Display the final result
+        //Final result
         int totalQuestions = questions.length;
-        double percentage = (double) correctAnswer / totalQuestions * 100;
-        String result = "Test Completed!\n" +
-                "Correct Answers: " + correctAnswer + "\n" +
-                "Wrong Answers: " + wrongAnswer + "\n" +
-                "Percentage: " + String.format("%.2f", percentage) + "%";
+        double percentage=(double)correctAnswer/totalQuestions * 100;
+        String result = "Times Up!\n" +
+        "Correct Answer: " + correctAnswer + "\n" +
+                "Wrong Answer: " + wrongAnswer + "\n" +
+                "Percentage: " + String.format("%.2f",percentage)+"%";
         JOptionPane.showMessageDialog(null, result);
     }
-}
+
+    }
