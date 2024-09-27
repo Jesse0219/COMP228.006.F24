@@ -9,56 +9,65 @@ public class LottoGame {
 
         // Ask the user to choose a number between 3 and 27
         while (true) {
-            String input = JOptionPane.showInputDialog(null, "Choose a number between 3 and 27:", "Lotto Game", JOptionPane.QUESTION_MESSAGE);
-            if (input != null) {
-                // Instead of parsing, we'll manually check if the input matches any number between 3 and 27
-                boolean isValid = false;
-                for (int i = 3; i <= 27; i++) {
-                    if (input.equals(String.valueOf(i))) { // Check if input matches the string value of i
-                        userNumber = i; // Assign the matched number to userNumber
-                        isValid = true;
-                        break;
-                    }
-                }
+            String input = JOptionPane.showInputDialog(null, "Please choose a number between 3 and 27:", "Lotto Game", JOptionPane.QUESTION_MESSAGE);
 
-                if (isValid) {
-                    // The user runs the lotto up to 5 times
-                    for (int attempts = 1; attempts <= 5; attempts++) {
+            if (input != null) { // Check if the user input or not
+                // Check if the input is a valid integer and within the range
+                if (isValidNumber(input, 3, 27)) {
+                    userNumber = Integer.parseInt(input); // Convert to an integer
+
+                    // Start the lotto game
+                    for (int attempt = 1; attempt <= 5; attempt++) {
                         Lotto lotto = new Lotto();
-                        int[] numbers = lotto.getNumbers();
-                        int sum = lotto.getSum();
+                        int[] numbers = lotto.getNumbers(); // Get the generated lotto numbers
+                        int sum = lotto.getSum(); // Get the sum of the lotto numbers
 
-                        // Display the numbers and the sum
-                        StringBuilder message = new StringBuilder();
-                        message.append("Attempt ").append(attempts).append(": The lotto numbers are: ");
+                        // Display the result of the current attempt
+                        String message = "Attempt " + attempt + ": The lotto numbers are: ";
                         for (int num : numbers) {
-                            message.append(num).append(" ");
+                            message += num + " ";
                         }
-                        message.append("\nSum of numbers: ").append(sum);
+                        message += "\nSum of numbers: " + sum;
+                        JOptionPane.showMessageDialog(null, message);
 
-                        JOptionPane.showMessageDialog(null, message.toString());
-
+                        // Check if the user's number matches the sum
                         if (sum == userNumber) {
                             JOptionPane.showMessageDialog(null, "Congratulations! You matched the sum and won the game!");
                             userWins = true;
-                            break;
+                            break; // Exit the loop as the user has won
                         } else {
-                            JOptionPane.showMessageDialog(null, "Sorry, the sums do not match.");
+                            JOptionPane.showMessageDialog(null, "Sorry, the sum does not match.");
                         }
                     }
 
+                    // Check if the user did not win after 5 attempts
                     if (!userWins) {
-                        JOptionPane.showMessageDialog(null, "You've used all attempts. The computer wins!");
+                        JOptionPane.showMessageDialog(null, "You've used all attempts. You lose!");
                     }
-                    break; // Exit the loop since a valid number was provided
+                    break; // Exit the outer loop as the game is finished
                 } else {
-                    JOptionPane.showMessageDialog(null, "Please enter a number between 3 and 27.");
+                    JOptionPane.showMessageDialog(null, "Please enter a valid number between 3 and 27.");
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "Game cancelled.");
-                System.exit(0);
+                System.exit(0); // Exit the program if the user cancels
             }
         }
     }
-}
 
+    // Helper method to check if the input is a valid integer within the given range
+    private static boolean isValidNumber(String input, int min, int max) {
+        // Check if the input is a number
+        for (char c : input.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                return false; // Return false if any character is not a digit
+            }
+        }
+
+        // Convert the input to an integer
+        int number = Integer.parseInt(input);
+
+        // Check if the number is within the specified range
+        return number >= min && number <= max;
+    }
+}

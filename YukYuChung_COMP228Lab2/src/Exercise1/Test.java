@@ -95,26 +95,26 @@ public class Test {
                 }
                 break;
                 case 2:
-                    if(correctOrNot) {
+                if(correctOrNot) {
                         message ="Good!";
-                    }else{
+                }else{
                         message ="Wrong. Try once more.";
-                    }
-                    break;
-                    case 3:
-                        if(correctOrNot) {
-                            message ="Keep up the good work!";
-                        }else{
-                            message ="Don't give up!";
-                        }
-                        break;
-                        case 4:
-                            if(correctOrNot) {
-                                message ="Nice work!";
-                            }else{
-                                message ="No. Keep trying.";
-                            }
-                            break;
+                }
+                break;
+                case 3:
+                if(correctOrNot) {
+                    message ="Keep up the good work!";
+                }else{
+                    message ="Don't give up!";
+                }
+                break;
+                case 4:
+                if(correctOrNot) {
+                    message ="Nice work!";
+                }else{
+                    message ="No. Keep trying.";
+                }
+                break;
             default:
                 message = "";
                 break;

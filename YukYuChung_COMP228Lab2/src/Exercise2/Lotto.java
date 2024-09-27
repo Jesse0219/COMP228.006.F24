@@ -1,39 +1,31 @@
 package Exercise2;
+
 import java.util.Random;
 
-
 public class Lotto {
-    //Array to hold three random integers between 1 and 9
-    private int[] numbers;
+    private int[] numbers; // Array to hold three random integers
 
+    // Constructor
     public Lotto() {
         numbers = new int[3];
-        int[] availableNumbers = {1,2,3,4,5,6,7,8,9}; //number between 1-9
         Random random = new Random();
-        //random the array of numbers
-        for(int i = availableNumbers.length - 1; i >= 0; i--){
-            int index = random.nextInt(i+1);
 
-            int temp = availableNumbers[index];
-            availableNumbers[index] = availableNumbers[i];
-            availableNumbers[i] = temp;
-        }
-
-        //arrange the first three numbers in the random array
-        for (int i=0; i<numbers.length; i++){
-            numbers[i] = availableNumbers[i];
+        // Populate the array with random numbers between 1 and 9
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = random.nextInt(9) + 1; // Random number between 1 and 9
         }
     }
-    //return the array of numbers
+
+    // Method to return the array of generated numbers
     public int[] getNumbers() {
         return numbers;
     }
 
-    //calculation
-    public int getSum(){
+    // Method to calculate and return the sum of the numbers
+    public int getSum() {
         int sum = 0;
-        for(int i=0; i<numbers.length; i++){
-            sum += numbers[i];
+        for (int number : numbers) {
+            sum += number; // Add each number to the sum
         }
         return sum;
     }
