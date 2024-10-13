@@ -87,35 +87,35 @@ public class Test {
         String message;
         //1-4 randomly to send the message base on userAnswer
         switch( rand.nextInt( 4 ) ) {
-            case 1:
+            case 0:
                 if(correctOrNot) {
                     message ="Excellent!";
                 }else{
                     message ="No. Please try again.";
                 }
                 break;
-                case 2:
+                case 1:
                 if(correctOrNot) {
                         message ="Good!";
                 }else{
                         message ="Wrong. Try once more.";
                 }
                 break;
-                case 3:
+                case 2:
                 if(correctOrNot) {
                     message ="Keep up the good work!";
                 }else{
                     message ="Don't give up!";
                 }
                 break;
-                case 4:
+                case 3:
                 if(correctOrNot) {
                     message ="Nice work!";
                 }else{
                     message ="No. Keep trying.";
                 }
                 break;
-            default:
+                default:
                 message = "";
                 break;
         }
