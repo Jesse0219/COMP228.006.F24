@@ -8,11 +8,13 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        //initialize scanner
         Scanner scanner = new Scanner(System.in);
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         dateFormat.setLenient(true);
         List<Insurance> insuranceList = new ArrayList<>();
         boolean addMore = true;
+        //add more insurance
         while (addMore) {
             System.out.print("Enter the type of Insurance (Life or Health): ");
             String typeOfInsurance = scanner.nextLine().trim().toLowerCase();
@@ -22,6 +24,7 @@ public class Main {
 
             System.out.print("Enter the insurance start date (yyyy-mm-dd): ");
             Date startDate = null;
+            //exception handling
             try {
                 startDate = dateFormat.parse(scanner.nextLine().trim());
             } catch (Exception e) {
@@ -31,6 +34,7 @@ public class Main {
 
             System.out.print("Enter the insurance end date (yyyy-mm-dd): ");
             Date endDate = null;
+            //exception handling
             try {
                 endDate = dateFormat.parse(scanner.nextLine().trim());
             } catch (Exception e) {
@@ -43,7 +47,7 @@ public class Main {
             scanner.nextLine();  // Consume the leftover newline
 
             Insurance insurance = null;
-
+            //if the type of insurance is life or health
             if (typeOfInsurance.equals("life")) {
                 System.out.print("Enter your age: ");
                 int age = scanner.nextInt();
@@ -61,7 +65,7 @@ public class Main {
                 System.out.println("Invalid insurance type");
                 System.exit(0);
             }
-
+            //pass in the insurance cost
             insurance.setInsuranceCost(monthlyCost);
             insuranceList.add(insurance);
 
@@ -71,7 +75,7 @@ public class Main {
                 addMore = false;
             }
         }
-
+        //print out all insurance details
         System.out.println("\nInsurance Details:");
         for (Insurance insurance : insuranceList) {
             insurance.displayInfo();
