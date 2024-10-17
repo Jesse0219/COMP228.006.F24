@@ -10,7 +10,7 @@ public class ProcessMortgage {
 
         System.out.print("Enter the current interest rate: ");
         double primeRate = scanner.nextDouble();
-
+        //add mortgages to the array with user input
         for (int i = 0; i < mortgages.length; i++) {
             System.out.println("Enter mortgage type (1 for Business, 2 for Personal, 3 to finish): ");
             int type = scanner.nextInt();
@@ -32,7 +32,7 @@ public class ProcessMortgage {
                 mortgages[i] = new PersonalMortgage(mortgageNumber, customerName, amount, term, primeRate);
             }
         }
-
+        // print out the result for each mortgage
         for (Mortgage mortgage : mortgages) {
             if (mortgage != null) {
                 System.out.println(mortgage.getMortgageInfo());
@@ -42,5 +42,5 @@ public class ProcessMortgage {
         }
     }
 
-    }
+}
 

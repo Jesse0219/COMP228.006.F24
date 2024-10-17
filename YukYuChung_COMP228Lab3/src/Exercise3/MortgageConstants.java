@@ -1,10 +1,10 @@
 package Exercise3;
 
 public interface MortgageConstants   {
-
-    int SHORT_TERM = 1;
-    int MEDIUM_TERM = 3;
-    int LONG_TERM = 5;
+    // mortgage term
+    int short_term = 1;
+    int medium_term = 3;
+    int long_term = 5;
     String BANK_NAME = "CityToronto Bank";
-    double MAX_MORTGAGE_AMOUNT = 300000;
+    double max_mortgage_amount = 300000;
 }
