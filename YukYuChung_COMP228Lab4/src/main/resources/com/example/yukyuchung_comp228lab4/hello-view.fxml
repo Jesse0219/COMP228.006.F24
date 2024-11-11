@@ -71,6 +71,10 @@
   <Label text="Courses:" GridPane.rowIndex="3" GridPane.columnIndex="2"/>
   <ComboBox fx:id="coursesComboBox" GridPane.rowIndex="3" GridPane.columnIndex="3"/>
 
+  <!-- ListView to display selected courses -->
+  <Label text="Selected Courses:" GridPane.rowIndex="5" GridPane.columnIndex="2"/>
+  <ListView fx:id="selectedCoursesListView" GridPane.rowIndex="5" GridPane.columnIndex="3" prefHeight="100"/>
+
 
   <!-- Display Button -->
   <Button fx:id="displayButton" text="Display" onAction="#onDisplayButtonClick" GridPane.rowIndex="8" GridPane.columnIndex="2" GridPane.columnSpan="2"/>
