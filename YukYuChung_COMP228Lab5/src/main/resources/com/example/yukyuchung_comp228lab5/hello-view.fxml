@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.yukyuchung_comp228lab5.HelloController" spacing="10" alignment="CENTER" style="-fx-padding: 10;">
+    <ScrollPane fitToWidth="true" fitToHeight="true">
+        <VBox spacing="20" alignment="TOP_CENTER">
+            <!-- Player Information Section -->
+            <TitledPane text="Player Information" expanded="true">
+                <VBox spacing="10">
+                    <GridPane hgap="10" vgap="10" style="-fx-padding: 10;">
+                        <Label text="Player ID:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtPlayerID" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                        <Label text="First Name:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtFirstName" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                        <Label text="Last Name:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtLastName" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                        <Label text="Address:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtAddress" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                        <Label text="Postal Code:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtPostalCode" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                        <Label text="Province:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtProvince" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                        <Label text="Phone Number:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtPhoneNumber" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+                    </GridPane>
+                    <HBox spacing="10" alignment="CENTER">
+                        <Button text="Insert Player" onAction="#insertPlayer"/>
+                        <Button text="Update Player" onAction="#updatePlayer"/>
+                    </HBox>
+                </VBox>
+            </TitledPane>
+
+            <!-- Game Information Section -->
+            <TitledPane text="Game Information" expanded="true">
+                <VBox spacing="10">
+                    <GridPane hgap="10" vgap="10" style="-fx-padding: 10;">
+                        <Label text="Game ID:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtGameID" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                        <Label text="Game Title:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtGameTitle" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                    </GridPane>
+                    <HBox spacing="10" alignment="CENTER">
+                        <Button text="Insert Game" onAction="#insertGame"/>
+                    </HBox>
+                </VBox>
+            </TitledPane>
+
+            <!-- Player and Game Relationship Section -->
+            <TitledPane text="Player and Game Relationship" expanded="true">
+                <VBox spacing="10">
+                    <GridPane hgap="10" vgap="10" style="-fx-padding: 10;">
+                        <Label text="Player Game ID:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtPlayerGameID" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                        <Label text="Player ID:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtPlayerIDRel" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                        <Label text="Game ID:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtGameIDRel" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                        <Label text="Playing Date:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtPlayingDate" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                        <Label text="Score:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                        <TextField fx:id="txtScoreRel" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                    </GridPane>
+                    <HBox spacing="10" alignment="CENTER">
+                        <Button text="Insert Player and Game Relationship" onAction="#insertPlayerAndGame"/>
+                    </HBox>
+                </VBox>
+            </TitledPane>
+
+            <!-- Player and Game Report Section -->
+            <TitledPane text="Player and Game Report" expanded="true">
+                <VBox spacing="10">
+                    <TextArea fx:id="txtReportArea" editable="false" prefHeight="300" prefWidth="500"/>
+                    <HBox spacing="10" alignment="CENTER">
+                        <Button text="Display Report" onAction="#displayReport"/>
+                    </HBox>
+                </VBox>
+            </TitledPane>
+        </VBox>
+    </ScrollPane>
+</VBox>

@@ -11,13 +11,11 @@ public abstract class  Mortgage implements MortgageConstants {
     public Mortgage(int mortgageNumber, String customerName, double amount, int term) {
         this.mortgageNumber = mortgageNumber;
         this.customerName = customerName;
-        if (amount > max_mortgage_amount)
-        {
+        if (amount > max_mortgage_amount) {
             amount = max_mortgage_amount;
         }
         this.amount = amount;
-        if (term != short_term && term != medium_term && term != long_term)
-        {
+        if (term != short_term && term != medium_term && term != long_term) {
             term =short_term;
         }
         this.term = term;
