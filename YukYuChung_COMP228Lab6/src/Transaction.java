@@ -24,7 +24,7 @@ public class Transaction implements Runnable{
                 account.withdraw(amount);
             }
 
-            // Simulate processing time (similar to the provided example)
+            // Simulate processing time
             Long duration = (long) (Math.random() * 10);
             TimeUnit.SECONDS.sleep(duration);
 

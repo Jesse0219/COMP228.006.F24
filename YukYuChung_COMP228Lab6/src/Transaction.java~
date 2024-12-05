@@ -1,6 +1,6 @@
 import java.util.concurrent.TimeUnit;
 
-public class Transaction {
+public class Transaction implements Runnable{
     private final Account account;
     private final boolean isDeposit;
     private final double amount;
